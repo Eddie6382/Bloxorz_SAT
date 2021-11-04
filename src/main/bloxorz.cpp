@@ -61,7 +61,7 @@ void Manager::readMap(fstream &fin) {
    string line;
    int s;
    while (getline(fin, line)) {
-      int size = line.size() - 1;
+      int size = line.size();
       vector<int> tem;
       for (int i=0; i<size; ++i) {
          s = stoi(string(1, line[i]));
