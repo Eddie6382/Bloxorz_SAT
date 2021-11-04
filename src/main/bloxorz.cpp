@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <string>
 #include <map>
 #include <algorithm>
@@ -64,7 +63,10 @@ void Manager::readMap(fstream &fin) {
       int size = line.size();
       vector<int> tem;
       for (int i=0; i<size; ++i) {
-         s = stoi(string(1, line[i]));
+         if (line[i] <= 57 && line[i] >=  48)
+            s = line[i] - 48;
+         else
+            break;
          tem.push_back(s); 
       }
       _map.push_back(tem);
