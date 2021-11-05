@@ -36,6 +36,7 @@ public:
    void genProofModel(SatSolver& );
    void reportResult(const SatSolver&, bool);
    void printStat();
+   void printPath(SatSolver& );
 private:
    vector<vector<int> > _map;
    map<long, Variable *> _nodes;
@@ -57,14 +58,51 @@ void Manager::printStat() {
    cout << "unary var size = " << _distances.size() << "\n\n";
 }
 
+void Manager::printPath(SatSolver &s) {
+   vector<Variable *> paths;
+   vector<int> actions;
+   map<int, string> moveName;
+   moveName[UP]="UP"; moveName[DOWN]="DOWN"; moveName[RIGHT]="RIGHT"; moveName[LEFT]="LEFT"; 
+   for (int p=0; p<_mapSize; ++p) {
+      for (int i=0; i<_m; ++i) {
+         for (int j=0; j<_n; ++j) {
+            for (int a=0; a<3; ++a) {
+               if (_map[i][j]) {
+                  auto it = _distances.find(hashDistance(i, j, a, p));
+                  if (s.getValue(it->second->getVar()) == 1) {
+                     paths.push_back(it->second);
+                     for (int m=0; m<4; ++m) {
+                        auto it2 = _moves.find(hashMove(i, j, a, m));
+                        if (s.getValue(it2->second->getVar()) == 1) {
+                           actions.push_back(m);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   assert(actions.size() + 1 == paths.size());
+   for (int step=0; step<actions.size(); ++step) {
+      cout << "state " << paths[step]->getName() << "\n";
+      cout << "                        step " << step << " : " << moveName[actions[step]] << "\n";
+   }
+   cout << "state  " << paths[actions.size()]->getName() << "\n";
+}
+
 void Manager::readMap(fstream &fin) {
    string line;
    int s;
    while (getline(fin, line)) {
-      int size = line.size() - 1;
+      int size = line.size();
       vector<int> tem;
       for (int i=0; i<size; ++i) {
-         s = stoi(string(1, line[i]));
+         if (line[i] <= 57 && line[i] >=  48)
+            s = line[i] - 48;
+         else
+            break;
          tem.push_back(s); 
       }
       _map.push_back(tem);
@@ -95,8 +133,8 @@ void Manager::initVariable() {
       for (int j=0; j<_n; ++j) {
          if (_map[i][j] != 0) {
             // for "b"
-            string stateIx = to_string(i) + "_" + to_string(j) + "_Ix" ;
-            string stateIy = to_string(i) + "_" + to_string(j) + "_Iy" ;
+            string stateIx = to_string(i) + "_" + to_string(j) + "_Lx" ;
+            string stateIy = to_string(i) + "_" + to_string(j) + "_Ly" ;
             string stateS = to_string(i) + "_" + to_string(j) + "_S" ;
             _nodes[hashNode(i, j, Lx)] = new Variable("b_" + stateIx);
             _nodes[hashNode(i, j, Ly)] = new Variable("b_" + stateIy);
@@ -235,6 +273,7 @@ void Manager::genProofModel(SatSolver& s) {
    }
 
    //    P's continuality
+   /* remove
    //       each P maps to at most one node
    for (int p=0; p<_mapSize; ++p)
       for (int i1=0; i1<_m; ++i1)
@@ -245,9 +284,69 @@ void Manager::genProofModel(SatSolver& s) {
                      for (int a2=0; a2<3; ++a2 )
                         if ((_map[i1][j1]) && (_map[i2][j2]) && (i1!=i2) && (j1!=j2) && (a1!=a2))
                            s.addOr2CNF(_distances[hashDistance(i1, j1, a1, p)]->getVar(), true, _distances[hashDistance(i2, j2, a2, p)]->getVar(), true);
+   */
+
+   //       each node has exactly one input except start
+   /*
+   for (int i=0; i<_m; ++i) {
+      for (int j=0; j<_n; ++j) {
+         if (_map[i][j] && !(i==_iStart && j==_jStart)) {
+            // S
+            vector<Var> vars;
+            vector<bool> fs;
+            vars.push_back(_nodes[hashNode(i, j, S)]->getVar()); fs.push_back(true);
+            if (i+2<_m && _map[i+2][j] && _map[i+1][j]) {
+               vars.push_back(_moves[hashMove(i+1, j, Lx, LEFT)]->getVar()); fs.push_back(false); }
+            if (j-2>=0 && _map[i][j-2] && _map[i][j-1]) {
+               vars.push_back(_moves[hashMove(i, j-2, Ly, UP)]->getVar()); fs.push_back(false); }
+            if (j+2<_n && _map[i][j+1] && _map[i][j+2]) {
+               vars.push_back(_moves[hashMove(i, j+1, Ly, DOWN)]->getVar()); fs.push_back(false); }
+            if (i-2>=0 && _map[i-1][j] && _map[i-2][j]) {
+               vars.push_back(_moves[hashMove(i-2, j, Lx, RIGHT)]->getVar()); fs.push_back(false); }
+            s.addSeqCNF(vars, fs);
+            vars.clear();
+            fs.clear();
+
+            // Lx
+            vars.push_back(_nodes[hashNode(i, j, Lx)]->getVar()); fs.push_back(true);
+            if (i+1<_m && j+1<_n && (_map[i][j+1] && _map[i+1][j+1])) {
+               vars.push_back(_moves[hashMove(i, j+1, Lx, DOWN)]->getVar()); fs.push_back(false); }
+            if (i+1<_m && j-1>=0 && (_map[i][j-1] && _map[i+1][j-1])) {
+               vars.push_back(_moves[hashMove(i, j-1, Lx, UP)]->getVar()); fs.push_back(false); }
+            if (i+2<_m && (_map[i+2][j])) {
+               vars.push_back(_moves[hashMove(i+2, j, S, LEFT)]->getVar()); fs.push_back(false); }
+            if (i-1>=0 && (_map[i-1][j])) {
+               vars.push_back(_moves[hashMove(i-1, j, S, RIGHT)]->getVar()); fs.push_back(false); }
+            s.addSeqCNF(vars, fs);
+            vars.clear();
+            fs.clear();
+
+            // Ly
+            vars.push_back(_nodes[hashNode(i, j, Ly)]->getVar()); fs.push_back(true);
+            if (j+2<_n && (_map[i][j+2])) {
+               vars.push_back(_moves[hashMove(i, j+2, S, DOWN)]->getVar()); fs.push_back(false); }
+            if (j-1>=0 && (_map[i][j-1])) {
+               vars.push_back(_moves[hashMove(i, j-1, S, UP)]->getVar()); fs.push_back(false); }
+            if (i+1<_m && j+1<_n && (_map[i+1][j] && _map[i+1][j+1])) {
+               vars.push_back(_moves[hashMove(i+1, j, Ly, LEFT)]->getVar()); fs.push_back(false); }
+            if (i-1>=0 && j+1<_n && (_map[i-1][j] && _map[i-1][j+1])) {
+               vars.push_back(_moves[hashMove(i-1, j, Ly, RIGHT)]->getVar()); fs.push_back(false); }
+            s.addSeqCNF(vars, fs);
+            vars.clear();
+            fs.clear();
+         }
+      }
+   }
+   */
 
    //       recursion (state + action -> next state), exclude all illegal implication (out of index), all illegal moves are excluded too
    s.addSingleCNF(_distances[hashDistance(_iStart, _jStart, S, 0)]->getVar(), false);
+   for (int i=0; i<_m; ++i)
+      for (int j=0; j<_n; ++j)
+         if (_map[i][j] && !(i==_iStart && j==_jStart))
+            for (int a=0; a<3; ++a)
+               s.addSingleCNF(_distances[hashDistance(i, j, a, 0)]->getVar(), true);
+   
    for (int i=0; i<_m; ++i) {
       for (int j=0; j<_n; ++j) {
          if (_map[i][j] != 0 && !(i==_iEnd && j==_jEnd)) {
@@ -373,7 +472,9 @@ int main(int argc, char* argv[]) {
    bool result = solver.assumpSolve();
    solver.printStats();
    cout << (result? "SAT\n\n" : "UNSAT\n\n");
+   if (result)
+      mgr.printPath(solver);
 
-   std::cout << "Total memory usage: " << get_mem_usage() << "\n";
+   std::cout << "\nTotal memory usage: " << get_mem_usage() << "\n";
    std::cout << "Total time usage: " << double(clock()-start)/CLOCKS_PER_SEC << " s\n";
 }

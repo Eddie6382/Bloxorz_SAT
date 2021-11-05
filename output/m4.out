@@ -1,0 +1,63 @@
+map boundary (_m, _n) = (20, 20), size = 178
+starting index = (16, 12)
+ending index   = (3, 8)
+
+nodes size     = 534
+moves size     = 2136
+unary var size = 95052
+
+=====  Begin to solve  =====
+==============================[MINISAT]===============================
+| Conflicts |     ORIGINAL     |          LEARNT          | Progress |
+|           | Clauses Literals | Clauses Literals  Lit/Cl |          |
+======================================================================
+|       177 | 7439236 15089283 |     177     1019     5.8 | 15.763 % |
+======================================================================
+SAT
+
+state U_16_12_S_0
+                        step 0 : UP
+state U_16_13_Ly_1
+                        step 1 : LEFT
+state U_15_13_Ly_2
+                        step 2 : UP
+state U_15_15_S_3
+                        step 3 : UP
+state U_15_16_Ly_4
+                        step 4 : LEFT
+state U_14_16_Ly_5
+                        step 5 : LEFT
+state U_13_16_Ly_6
+                        step 6 : LEFT
+state U_12_16_Ly_7
+                        step 7 : DOWN
+state U_12_15_S_8
+                        step 8 : LEFT
+state U_10_15_Ly_9
+                        step 9 : LEFT
+state U_9_15_Ly_10
+                        step 10 : LEFT
+state U_8_15_Ly_11
+                        step 11 : LEFT
+state U_7_15_Ly_12
+                        step 12 : LEFT
+state U_6_15_Ly_13
+                        step 13 : DOWN
+state U_6_14_S_14
+                        step 14 : DOWN
+state U_6_12_Ly_15
+                        step 15 : DOWN
+state U_6_11_S_16
+                        step 16 : DOWN
+state U_6_9_Ly_17
+                        step 17 : LEFT
+state U_5_9_Ly_18
+                        step 18 : LEFT
+state U_4_9_Ly_19
+                        step 19 : LEFT
+state U_3_9_Ly_20
+                        step 20 : DOWN
+state  U_3_8_S_21
+
+Total memory usage: 528712
+Total time usage: 10.2323 s

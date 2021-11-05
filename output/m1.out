@@ -1,0 +1,33 @@
+map boundary (_m, _n) = (6, 6), size = 26
+starting index = (5, 3)
+ending index   = (1, 3)
+
+nodes size     = 78
+moves size     = 312
+unary var size = 2028
+
+=====  Begin to solve  =====
+==============================[MINISAT]===============================
+| Conflicts |     ORIGINAL     |          LEARNT          | Progress |
+|           | Clauses Literals | Clauses Literals  Lit/Cl |          |
+======================================================================
+|         6 |   21270    45150 |       3        8     2.7 |  0.000 % |
+======================================================================
+SAT
+
+state U_5_3_S_0
+                        step 0 : UP
+state U_5_4_Ly_1
+                        step 1 : LEFT
+state U_4_4_Ly_2
+                        step 2 : LEFT
+state U_3_4_Ly_3
+                        step 3 : LEFT
+state U_2_4_Ly_4
+                        step 4 : LEFT
+state U_1_4_Ly_5
+                        step 5 : DOWN
+state  U_1_3_S_6
+
+Total memory usage: 5980
+Total time usage: 0.036443 s

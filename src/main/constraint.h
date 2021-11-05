@@ -18,7 +18,6 @@ enum MoveType {
    LEFT,
 };
 
-
 enum StateType {
    Lx,
    Ly,
@@ -32,7 +31,8 @@ public:
    ~Variable();
 
    Var getVar() const { return _var; }
-   void setVar(const Var& v) { _var = v; } 
+   void setVar(const Var& v) { _var = v; }
+   string getName() const {return _name; } 
 private:
    string _name;
    Var    _var;
