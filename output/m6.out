@@ -1,0 +1,83 @@
+map boundary (_m, _n) = (25, 25), size = 301
+starting index = (22, 15)
+ending index   = (4, 16)
+
+nodes size     = 903
+moves size     = 3612
+unary var size = 271803
+
+=====  Begin to solve  =====
+==============================[MINISAT]===============================
+| Conflicts |     ORIGINAL     |          LEARNT          | Progress |
+|           | Clauses Literals | Clauses Literals  Lit/Cl |          |
+======================================================================
+|       314 | 35802368 72252024 |     313     1336     4.3 | 14.443 % |
+======================================================================
+SAT
+
+state U_22_15_S_0
+                        step 0 : UP
+state U_22_16_Ly_1
+                        step 1 : LEFT
+state U_21_16_Ly_2
+                        step 2 : UP
+state U_21_18_S_3
+                        step 3 : UP
+state U_21_19_Ly_4
+                        step 4 : LEFT
+state U_20_19_Ly_5
+                        step 5 : DOWN
+state U_20_18_S_6
+                        step 6 : LEFT
+state U_18_18_Ly_7
+                        step 7 : LEFT
+state U_17_18_Ly_8
+                        step 8 : LEFT
+state U_16_18_Ly_9
+                        step 9 : LEFT
+state U_15_18_Ly_10
+                        step 10 : LEFT
+state U_14_18_Ly_11
+                        step 11 : LEFT
+state U_13_18_Ly_12
+                        step 12 : LEFT
+state U_12_18_Ly_13
+                        step 13 : LEFT
+state U_11_18_Ly_14
+                        step 14 : DOWN
+state U_11_17_S_15
+                        step 15 : DOWN
+state U_11_15_Ly_16
+                        step 16 : DOWN
+state U_11_14_S_17
+                        step 17 : LEFT
+state U_9_14_Ly_18
+                        step 18 : UP
+state U_9_16_S_19
+                        step 19 : LEFT
+state U_7_16_Ly_20
+                        step 20 : LEFT
+state U_6_16_Ly_21
+                        step 21 : LEFT
+state U_5_16_Ly_22
+                        step 22 : DOWN
+state U_5_15_S_23
+                        step 23 : DOWN
+state U_5_13_Ly_24
+                        step 24 : LEFT
+state U_4_13_Ly_25
+                        step 25 : UP
+state U_4_15_S_26
+                        step 26 : LEFT
+state U_2_15_Ly_27
+                        step 27 : UP
+state U_2_17_S_28
+                        step 28 : RIGHT
+state U_3_17_Ly_29
+                        step 29 : RIGHT
+state U_4_17_Ly_30
+                        step 30 : DOWN
+state  U_4_16_S_31
+
+Total memory usage: 2376840
+Total time usage: 49.5189 s
