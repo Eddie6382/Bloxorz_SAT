@@ -62,7 +62,63 @@ void Manager::printPath(SatSolver &s) {
    map<int, string> moveName;
    moveName[UP]="UP"; moveName[DOWN]="DOWN"; moveName[RIGHT]="RIGHT"; moveName[LEFT]="LEFT"; 
 
-   assert(actions.size() + 1 == paths.size());
+   paths.push_back(_nodes[hashNode(_iStart, _jStart, S)]);
+   int i = _iStart, j = _jStart, m=S;
+   bool error;
+   while (!((i==_iEnd) && (j==_jEnd) && (m==S))) {
+      error = true;
+      for (int a=0; a<4; ++a) {
+         if (s.getValue(_moves[hashMove(i, j, m, a)]->getVar()) == 1) {
+            error = false;
+            switch(m) {
+               case S:
+                  switch(a) {
+                     case UP:
+                        i=i; j=j+1; m=Ly; break;
+                     case DOWN:
+                        i=i; j=j-2; m=Ly; break;
+                     case RIGHT:
+                        i=i+1; j=j; m=Lx; break;
+                     case LEFT:
+                        i=i-2; j=j; m=Lx; break;
+                  }
+                  break;
+               case Lx:
+                  switch(a) {
+                     case UP:
+                        i=i; j=j+1; m=Lx; break;
+                     case DOWN:
+                        i=i; j=j-1; m=Lx; break;
+                     case RIGHT:
+                        i=i+2; j=j; m=S; break;
+                     case LEFT:
+                        i=i-1; j=j; m=S; break;
+                  }
+                  break;
+               case Ly:
+                  switch(a) {
+                     case UP:
+                        i=i; j=j+2; m=S; break;
+                     case DOWN:
+                        i=i; j=j-1; m=S; break;
+                     case RIGHT:
+                        i=i+1; j=j; m=Ly; break;
+                     case LEFT:
+                        i=i-1; j=j; m=Ly; break;
+                  }
+                  break;
+            }
+
+            actions.push_back(a);
+            paths.push_back(_nodes[hashNode(i, j, m)]);
+         }
+      }
+      if (error) {
+         cout << "Something wrong, some node has no out-going edges\n";
+         break;
+      }
+   }
+
    for (int step=0; step<actions.size(); ++step) {
       cout << "state " << paths[step]->getName() << "\n";
       cout << "                        step " << step << " : " << moveName[actions[step]] << "\n";
