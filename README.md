@@ -1,6 +1,6 @@
 # SAT Solver to Solve Bloxorz Game
 
-![alt text](https://github.com/Eddie6382/Bloxorz_SAT/src/bloxorz4.png?raw=true)
+![alt text](https://otfried.org/courses/cs109/bloxorz4.png)
 
 ## Description
 Convert a "single-used tile" [1] Bloxorz game into a CNF formula, then use MiniSAT to check whether there exist a path from start node to the goal hole
