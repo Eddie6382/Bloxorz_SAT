@@ -1,6 +1,6 @@
 # SAT Solver to Solve Bloxorz Game
 ## Description
-Convert a Bloxorz game into a CNF formula, then use MiniSAT to check whether there exist a path from paths to 
+Convert a "single-used tile" [1] Bloxorz game into a CNF formula, then use MiniSAT to check whether there exist a path from start node to the goal hole
 ## Usage
 ```
    make 
@@ -16,6 +16,15 @@ To randomly generate a MxN map, with p% area being occupied, r1_cutoff, r2_cutof
 ```
 cd input
 ./mapGen M N r1_cutoff r2_cutoff r
+```
+```1``` represents tile, ```0``` represent boundary, for strat node (```2```) and end node ```3```, you need to add them in manual. For example, ```m1.in```.  
+```
+011110
+110311
+110111
+010111
+110111
+000211
 ```
 
 ## Result
