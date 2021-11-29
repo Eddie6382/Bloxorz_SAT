@@ -3,7 +3,7 @@
 ![alt text](https://otfried.org/courses/cs109/bloxorz4.png)
 
 ## Description
-Convert a "single-used tile" [1] Bloxorz game into a CNF formula, then use MiniSAT to check whether there exist a path from start node to the goal hole
+Convert a "single-used tile" Bloxorz game, which is a NP-Complete problem [1] into a CNF formula, then use MiniSAT to check whether there exist a path from start node to the goal hole
 ## Usage
 ```
    make 
