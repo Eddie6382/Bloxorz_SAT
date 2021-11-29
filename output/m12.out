@@ -1,0 +1,355 @@
+map boundary (_m, _n) = (100, 100), size = 5078
+starting index = (93, 94)
+ending index   = (3, 32)
+
+nodes size     = 15234
+moves size     = 60936
+=====  Begin to solve  =====
+==============================[MINISAT]===============================
+| Conflicts |     ORIGINAL     |          LEARNT          | Progress |
+|           | Clauses Literals | Clauses Literals  Lit/Cl |          |
+======================================================================
+|       582 |  190554   470979 |     582     8755    15.0 | 40.993 % |
+======================================================================
+SAT
+
+state b_93_94_S
+                        step 0 : RIGHT
+state b_94_94_Lx
+                        step 1 : DOWN
+state b_94_93_Lx
+                        step 2 : DOWN
+state b_94_92_Lx
+                        step 3 : RIGHT
+state b_96_92_S
+                        step 4 : UP
+state b_96_93_Ly
+                        step 5 : RIGHT
+state b_97_93_Ly
+                        step 6 : DOWN
+state b_97_92_S
+                        step 7 : DOWN
+state b_97_90_Ly
+                        step 8 : DOWN
+state b_97_89_S
+                        step 9 : LEFT
+state b_95_89_Lx
+                        step 10 : LEFT
+state b_94_89_S
+                        step 11 : DOWN
+state b_94_87_Ly
+                        step 12 : LEFT
+state b_93_87_Ly
+                        step 13 : DOWN
+state b_93_86_S
+                        step 14 : LEFT
+state b_91_86_Lx
+                        step 15 : LEFT
+state b_90_86_S
+                        step 16 : LEFT
+state b_88_86_Lx
+                        step 17 : LEFT
+state b_87_86_S
+                        step 18 : DOWN
+state b_87_84_Ly
+                        step 19 : LEFT
+state b_86_84_Ly
+                        step 20 : LEFT
+state b_85_84_Ly
+                        step 21 : LEFT
+state b_84_84_Ly
+                        step 22 : LEFT
+state b_83_84_Ly
+                        step 23 : DOWN
+state b_83_83_S
+                        step 24 : LEFT
+state b_81_83_Lx
+                        step 25 : DOWN
+state b_81_82_Lx
+                        step 26 : LEFT
+state b_80_82_S
+                        step 27 : LEFT
+state b_78_82_Lx
+                        step 28 : LEFT
+state b_77_82_S
+                        step 29 : DOWN
+state b_77_80_Ly
+                        step 30 : LEFT
+state b_76_80_Ly
+                        step 31 : UP
+state b_76_82_S
+                        step 32 : LEFT
+state b_74_82_Lx
+                        step 33 : UP
+state b_74_83_Lx
+                        step 34 : LEFT
+state b_73_83_S
+                        step 35 : LEFT
+state b_71_83_Lx
+                        step 36 : DOWN
+state b_71_82_Lx
+                        step 37 : LEFT
+state b_70_82_S
+                        step 38 : LEFT
+state b_68_82_Lx
+                        step 39 : LEFT
+state b_67_82_S
+                        step 40 : DOWN
+state b_67_80_Ly
+                        step 41 : DOWN
+state b_67_79_S
+                        step 42 : DOWN
+state b_67_77_Ly
+                        step 43 : DOWN
+state b_67_76_S
+                        step 44 : LEFT
+state b_65_76_Lx
+                        step 45 : DOWN
+state b_65_75_Lx
+                        step 46 : LEFT
+state b_64_75_S
+                        step 47 : LEFT
+state b_62_75_Lx
+                        step 48 : DOWN
+state b_62_74_Lx
+                        step 49 : LEFT
+state b_61_74_S
+                        step 50 : DOWN
+state b_61_72_Ly
+                        step 51 : LEFT
+state b_60_72_Ly
+                        step 52 : LEFT
+state b_59_72_Ly
+                        step 53 : LEFT
+state b_58_72_Ly
+                        step 54 : LEFT
+state b_57_72_Ly
+                        step 55 : DOWN
+state b_57_71_S
+                        step 56 : LEFT
+state b_55_71_Lx
+                        step 57 : LEFT
+state b_54_71_S
+                        step 58 : UP
+state b_54_72_Ly
+                        step 59 : RIGHT
+state b_55_72_Ly
+                        step 60 : UP
+state b_55_74_S
+                        step 61 : LEFT
+state b_53_74_Lx
+                        step 62 : LEFT
+state b_52_74_S
+                        step 63 : LEFT
+state b_50_74_Lx
+                        step 64 : LEFT
+state b_49_74_S
+                        step 65 : DOWN
+state b_49_72_Ly
+                        step 66 : DOWN
+state b_49_71_S
+                        step 67 : DOWN
+state b_49_69_Ly
+                        step 68 : DOWN
+state b_49_68_S
+                        step 69 : DOWN
+state b_49_66_Ly
+                        step 70 : LEFT
+state b_48_66_Ly
+                        step 71 : DOWN
+state b_48_65_S
+                        step 72 : LEFT
+state b_46_65_Lx
+                        step 73 : DOWN
+state b_46_64_Lx
+                        step 74 : DOWN
+state b_46_63_Lx
+                        step 75 : DOWN
+state b_46_62_Lx
+                        step 76 : LEFT
+state b_45_62_S
+                        step 77 : LEFT
+state b_43_62_Lx
+                        step 78 : DOWN
+state b_43_61_Lx
+                        step 79 : DOWN
+state b_43_60_Lx
+                        step 80 : RIGHT
+state b_45_60_S
+                        step 81 : DOWN
+state b_45_58_Ly
+                        step 82 : DOWN
+state b_45_57_S
+                        step 83 : DOWN
+state b_45_55_Ly
+                        step 84 : LEFT
+state b_44_55_Ly
+                        step 85 : UP
+state b_44_57_S
+                        step 86 : LEFT
+state b_42_57_Lx
+                        step 87 : LEFT
+state b_41_57_S
+                        step 88 : DOWN
+state b_41_55_Ly
+                        step 89 : LEFT
+state b_40_55_Ly
+                        step 90 : DOWN
+state b_40_54_S
+                        step 91 : DOWN
+state b_40_52_Ly
+                        step 92 : DOWN
+state b_40_51_S
+                        step 93 : DOWN
+state b_40_49_Ly
+                        step 94 : DOWN
+state b_40_48_S
+                        step 95 : LEFT
+state b_38_48_Lx
+                        step 96 : DOWN
+state b_38_47_Lx
+                        step 97 : LEFT
+state b_37_47_S
+                        step 98 : DOWN
+state b_37_45_Ly
+                        step 99 : DOWN
+state b_37_44_S
+                        step 100 : DOWN
+state b_37_42_Ly
+                        step 101 : LEFT
+state b_36_42_Ly
+                        step 102 : DOWN
+state b_36_41_S
+                        step 103 : LEFT
+state b_34_41_Lx
+                        step 104 : DOWN
+state b_34_40_Lx
+                        step 105 : LEFT
+state b_33_40_S
+                        step 106 : DOWN
+state b_33_38_Ly
+                        step 107 : LEFT
+state b_32_38_Ly
+                        step 108 : LEFT
+state b_31_38_Ly
+                        step 109 : DOWN
+state b_31_37_S
+                        step 110 : LEFT
+state b_29_37_Lx
+                        step 111 : DOWN
+state b_29_36_Lx
+                        step 112 : DOWN
+state b_29_35_Lx
+                        step 113 : DOWN
+state b_29_34_Lx
+                        step 114 : DOWN
+state b_29_33_Lx
+                        step 115 : DOWN
+state b_29_32_Lx
+                        step 116 : LEFT
+state b_28_32_S
+                        step 117 : UP
+state b_28_33_Ly
+                        step 118 : UP
+state b_28_35_S
+                        step 119 : LEFT
+state b_26_35_Lx
+                        step 120 : UP
+state b_26_36_Lx
+                        step 121 : LEFT
+state b_25_36_S
+                        step 122 : DOWN
+state b_25_34_Ly
+                        step 123 : DOWN
+state b_25_33_S
+                        step 124 : LEFT
+state b_23_33_Lx
+                        step 125 : DOWN
+state b_23_32_Lx
+                        step 126 : LEFT
+state b_22_32_S
+                        step 127 : DOWN
+state b_22_30_Ly
+                        step 128 : DOWN
+state b_22_29_S
+                        step 129 : DOWN
+state b_22_27_Ly
+                        step 130 : DOWN
+state b_22_26_S
+                        step 131 : LEFT
+state b_20_26_Lx
+                        step 132 : LEFT
+state b_19_26_S
+                        step 133 : UP
+state b_19_27_Ly
+                        step 134 : LEFT
+state b_18_27_Ly
+                        step 135 : DOWN
+state b_18_26_S
+                        step 136 : LEFT
+state b_16_26_Lx
+                        step 137 : DOWN
+state b_16_25_Lx
+                        step 138 : DOWN
+state b_16_24_Lx
+                        step 139 : DOWN
+state b_16_23_Lx
+                        step 140 : DOWN
+state b_16_22_Lx
+                        step 141 : DOWN
+state b_16_21_Lx
+                        step 142 : DOWN
+state b_16_20_Lx
+                        step 143 : DOWN
+state b_16_19_Lx
+                        step 144 : LEFT
+state b_15_19_S
+                        step 145 : LEFT
+state b_13_19_Lx
+                        step 146 : DOWN
+state b_13_18_Lx
+                        step 147 : LEFT
+state b_12_18_S
+                        step 148 : DOWN
+state b_12_16_Ly
+                        step 149 : LEFT
+state b_11_16_Ly
+                        step 150 : UP
+state b_11_18_S
+                        step 151 : LEFT
+state b_9_18_Lx
+                        step 152 : LEFT
+state b_8_18_S
+                        step 153 : UP
+state b_8_19_Ly
+                        step 154 : LEFT
+state b_7_19_Ly
+                        step 155 : UP
+state b_7_21_S
+                        step 156 : LEFT
+state b_5_21_Lx
+                        step 157 : DOWN
+state b_5_20_Lx
+                        step 158 : LEFT
+state b_4_20_S
+                        step 159 : UP
+state b_4_21_Ly
+                        step 160 : LEFT
+state b_3_21_Ly
+                        step 161 : UP
+state b_3_23_S
+                        step 162 : UP
+state b_3_24_Ly
+                        step 163 : UP
+state b_3_26_S
+                        step 164 : UP
+state b_3_27_Ly
+                        step 165 : UP
+state b_3_29_S
+                        step 166 : UP
+state b_3_30_Ly
+                        step 167 : UP
+state  b_3_32_S
+
+Total memory usage: 37260
+Total time usage: 0.621334 s

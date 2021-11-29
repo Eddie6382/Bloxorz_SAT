@@ -1,0 +1,18 @@
+map boundary (_m, _n) = (50, 50), size = 1052
+starting index = (43, 5)
+ending index   = (2, 43)
+
+nodes size     = 3156
+moves size     = 12624
+=====  Begin to solve  =====
+==============================[MINISAT]===============================
+| Conflicts |     ORIGINAL     |          LEARNT          | Progress |
+|           | Clauses Literals | Clauses Literals  Lit/Cl |          |
+======================================================================
+|     22991 |   35665    88416 |    8379   117696    14.0 | 45.270 % |
+======================================================================
+UNSAT
+
+
+Total memory usage: 12712
+Total time usage: 2.31522 s

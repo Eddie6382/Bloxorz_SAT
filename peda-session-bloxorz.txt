@@ -1,2 +1,0 @@
-break /mnt/e/user/OneDrive - g.ntu.edu.tw/ntu_ course/Ric_SAT/Bloxorz/src/main/bloxorz.cpp:68
-
